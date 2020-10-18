@@ -32,11 +32,11 @@ spec:
           - name: DB_USER
             value: postgres
           - name: DB_PASSWORD
-            value: 1m9a8z4urka
+            value: censored
           - name: POSTGRES_USER
             value: keycloak
           - name: POSTGRES_PASSWORD
-            value: 1m9a8z4urka
+            value: censored
           - name: DB_ADDR
             value: postgres-service.keycloak.svc
           
