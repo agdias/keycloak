@@ -24,7 +24,7 @@ spec:
           persistentVolumeClaim:
             claimName: postgres-pvc
       securityContext:
-        supplementalGroups: [65534]
+        supplementalGroups: [65534] 
       containers:
       - image: angelodias/mypostgres:latest
         name: postgres
@@ -32,7 +32,7 @@ spec:
           - name: PGDATA
             value: '/var/lib/postgresql/data/pgdata/'
           - name: POSTGRES_PASSWORD
-            value: '1m9a8z4urka'
+            value: 'censored'
         volumeMounts:
           - name: pgdata
             mountPath: /var/lib/postgresql/data
