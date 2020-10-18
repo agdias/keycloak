@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv04
+spec:
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    path: /export/mounts/okd/keycloak/postgres/
+    server: 172.17.1.199
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  persistentVolumeReclaimPolicy: Retain

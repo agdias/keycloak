@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: postgres
+  name: postgres
+  namespace: keycloak
+spec:
+  replicas: 1
+  serviceName: postgres-svc
+  selector:
+    matchLabels:
+      app: postgres
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: postgres
+    spec:
+      volumes:
+        - name: pgdata
+          persistentVolumeClaim:
+            claimName: postgres-pvc
+      securityContext:
+        supplementalGroups: [65534]
+      containers:
+      - image: angelodias/mypostgres:latest
+        name: postgres
+        env:
+          - name: PGDATA
+            value: '/var/lib/postgresql/data/pgdata/'
+          - name: POSTGRES_PASSWORD
+            value: '1m9a8z4urka'
+        volumeMounts:
+          - name: pgdata
+            mountPath: /var/lib/postgresql/data
+        resources: {}
+status: {}
